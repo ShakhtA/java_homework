@@ -16,7 +16,19 @@ public class Homework {
         final String PREFIX = "+7";
         while (true) {
             System.out.println("Введите фамилию, имя, отчество: ");
-            String name = scanner.nextLine();
+            
+            // Приведение введенного имени к формату "Фамилия Имя Отчество"
+            String[] inputString = scanner.nextLine().trim().split(" ");
+            StringBuilder outString = new StringBuilder("");
+            for (int i = 0; i < inputString.length; i++) {
+                if (inputString[i] != "") {
+                    String tmp = inputString[i].toLowerCase();
+                    outString.append(tmp.substring(0, 1).toUpperCase());
+                    outString.append(tmp.substring(1) + " ");
+                }
+            }
+            String name = outString.toString().trim();
+            
             System.out.println("Введите номер телефона");
             String phone = PREFIX.concat(scanner.nextLine());
             ArrayList tmp = new ArrayList<>();
