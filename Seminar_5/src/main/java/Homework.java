@@ -13,11 +13,12 @@ public class Homework {
         // Создание и заполнение телефонной книги
         Scanner scanner = new Scanner(System.in);
         HashMap<String, ArrayList<String>> phoneBook = new HashMap<>();
+        final String PREFIX = "+7";
         while (true) {
             System.out.println("Введите фамилию, имя, отчество: ");
             String name = scanner.nextLine();
             System.out.println("Введите номер телефона");
-            String phone = scanner.nextLine();
+            String phone = PREFIX.concat(scanner.nextLine());
             ArrayList tmp = new ArrayList<>();
             if (phoneBook.containsKey(name)) {
                 tmp.addAll(phoneBook.get(name));
